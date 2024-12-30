@@ -7,12 +7,12 @@
 ----------
 ## CLICK <a href="https://github.com/mrfrank-ofc/SUBZERO-MD/issues/2#issue-2744137419">HERE IF YOU ARE NEW TO BOTS</a>
 
-<img src='https://i.postimg.cc/m2jtqrBC/Screenshot-20241216-090753-Video-Maker.jpg'/>
+<img src='https://raw.githubusercontent.com/yash27git/ALITA/refs/heads/main/ALITA%20DEVLOPER%20IMG.jpg'/>
 
 -------
 
  <p align="center">
-  <a href="#"><img src="http://readme-typing-svg.herokuapp.com?color=cyan&center=true&vCenter=true&multiline=false&lines=`ＳＵＢＺＥＲＯ+MD+W.A+BOT+BY+MR+FRANK`" alt="">
+  <a href="#"><img src="http://readme-typing-svg.herokuapp.com?color=cyan&center=true&vCenter=true&multiline=false&lines=`ALITA+W.A+BOT+BY+YASH+27`" alt="">
 
 <br>
 

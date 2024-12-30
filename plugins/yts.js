@@ -15,42 +15,49 @@
 
 
 
-const config = require('../config')
-const l = console.log
-const { cmd, commands } = require('../command')
-const dl = require('@bochilteam/scraper')  
-const ytdl = require('yt-search');
-const fs = require('fs-extra')
-var videotime = 60000 // 1000 min
-const { getBuffer, getGroupAdmins, getRandom, h2k, isUrl, Json, runtime, sleep, fetchJson} = require('../lib/functions')
-cmd({
-    pattern: "yts",
-    alias: ["ytsearch"],
-    use: '.yts sameer kutti',
-    react: "🔎",
-    desc: "Search and get details from youtube.",
-    category: "search",
-    filename: __filename
+const config = require('../config');
+const { cmd } = require('../command');
+const yts = require("yt-search");
 
-},
+cmd(
+    {
+        pattern: "yts",
+        alias: ["ytsearch"],
+        use: ".yts [search query]",
+        react: "🔎",
+        desc: "Search and get details from YouTube.",
+        category: "search",
+        filename: __filename,
+    },
+    async (
+        conn,
+        mek,
+        m,
+        { from, q, reply }
+    ) => {
+        try {
+            if (!q) return reply("*❗ Please provide a search query. Usage: .yts [search query]*");
 
-async(conn, mek, m,{from, l, quoted, body, isCmd, umarmd, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply}) => {
-try{
-if (!q) return reply('*Please give me words to search*')
-try {
-let yts = require("yt-search")
-var arama = await yts(q);
-} catch(e) {
-    l(e)
-return await conn.sendMessage(from , { text: '*Error !!*' }, { quoted: mek } )
-}
-var mesaj = '';
-arama.all.map((video) => {
-mesaj += ' *🖲️' + video.title + '*\n🔗 ' + video.url + '\n\n'
-});
-await conn.sendMessage(from , { text:  mesaj }, { quoted: mek } )
-} catch (e) {
-    l(e)
-  reply('*Error !!*')
-}
-});
+            // Perform the YouTube search
+            const searchResults = await yts(q);
+
+            // Check if results are available
+            if (!searchResults || !searchResults.all.length) {
+                return reply("*❌ No results found. Try a different query.*");
+            }
+
+            // Format the results
+            let message = `*🔎 YouTube Search Results for:* _"${q}"_\n\n`;
+            searchResults.all.slice(0, 5).forEach((video, index) => {
+                message += `*${index + 1}. ${video.title}*\n🔗 ${video.url}\n⏳ Duration: ${video.timestamp}\n📅 Uploaded: ${video.ago}\n\n`;
+            });
+
+            // Send the formatted results
+            await conn.sendMessage(from, { text: message }, { quoted: mek });
+        } catch (error) {
+            console.error("Error in .yts command:", error);
+            reply("*⚠️ An error occurred while searching YouTube. Please try again later.*");
+        }
+    }
+);
+

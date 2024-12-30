@@ -23,7 +23,7 @@ function convertToBool(text, fault = 'true') {
 //--------------------------Mr Frank---------------------------------------
 module.exports = {
 
-SESSION_ID: process.env.SESSION_ID || "ENTER YOUR ALITA SESSION HERE",
+SESSION_ID: process.env.SESSION_ID || "uEwhUQAR#R8aYks_uZ8cB-BTIbvsE8BeK8rcMDMYXp99pI6PZy6w",
 AUTO_READ_STATUS: process.env.AUTO_READ_STATUS || "true", //TRUE OR FALSE
 OWNER_NUMBER: process.env.OWNER_NUMBER || "917275383838",
 MODE: process.env.MODE || "public",  // PRIVATE OR PUBLIC

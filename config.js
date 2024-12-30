@@ -40,6 +40,7 @@ AUTO_REACT: process.env.AUTO_REACT || "false",
 HEART_REACT: process.env.HEART_REACT || "false",
 OWNER_REACT: process.env.OWNER_REACT || "false",
 BOT_NAME: process.env.BOT_NAME || "『 ＡＬＩＴＡ 』",
+GEMINI_API_KEY: "https://kaiz-apis.gleeze.com/api/gemini-pro",
 OMDB_API_KEY: process.env.OMDB_API_KEY || "YASH YT FF", // omdbapi.com
 };
 

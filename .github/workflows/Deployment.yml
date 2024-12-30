@@ -1,13 +1,21 @@
-name: Deploy WhatsApp Bot
+name: Node.js CI
 
 on:
   push:
     branches:
       - main
+  pull_request:
+    branches:
+      - main
 
 jobs:
-  deploy:
+  build:
+
     runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [20.x]
 
     steps:
     - name: Checkout repository
@@ -16,19 +24,10 @@ jobs:
     - name: Set up Node.js
       uses: actions/setup-node@v3
       with:
-        node-version: '18'
+        node-version: ${{ matrix.node-version }}
 
     - name: Install dependencies
       run: npm install
 
-    - name: Configure environment variables
-      env:
-        NODE_ENV: production
-      run: |
-        echo "BOT_TOKEN=$BOT_TOKEN" >> .env
-        echo "OWNER_ID=$OWNER_ID" >> .env
-        echo "API_KEY=$API_KEY" >> .env
-
-    - name: Start the bot
-      run: node index.js
-      
+    - name: Start application
+      run: npm start

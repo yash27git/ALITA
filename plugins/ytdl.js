@@ -600,44 +600,18 @@ cmd({
   }
 });
 cmd({
-  'pattern': "yta",
-  'alias': "ytmp3",
+  'pattern': "log",
+  'alias': null, // No alias needed for this functionality
   'react': '⬇️',
   'dontAddCommandList': true,
   'filename': __filename
 }, async (_0x47e326, _0x16846a, _0x46f567, {
-  from: _0x31abbc,
-  q: _0x507947,
   reply: _0x17432c
 }) => {
   try {
-    if (!_0x507947) {
-      return await _0x17432c("*Need a YouTube URL!*");
-    }
-    const _0x5df9ac = await dlyta(_0x507947);
-    await _0x47e326.sendMessage(_0x31abbc, {
-      'audio': {
-        'url': _0x5df9ac.dl_link
-      },
-      'mimetype': "audio/mpeg"
-    }, {
-      'quoted': _0x16846a
-    });
-  } catch (_0x42217d) {
-    console.log("First attempt failed:", _0x42217d);
-    try {
-      const _0x9c7197 = await dlyta(_0x507947);
-      await _0x47e326.sendMessage(_0x31abbc, {
-        'audio': {
-          'url': _0x9c7197.dl_link
-        },
-        'mimetype': "audio/mpeg"
-      }, {
-        'quoted': _0x16846a
-      });
-    } catch (_0x43638b) {
-      console.log("Second attempt failed:", _0x43638b);
-      await _0x17432c("*Failed to process the request. Please try again later!*");
-    }
+    // Reply with the desired message
+    await _0x17432c("helooooooo");
+  } catch (error) {
+    console.log("Error sending message:", error);
   }
 });

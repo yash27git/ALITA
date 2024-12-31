@@ -28,15 +28,15 @@ cmd({
 async (conn,mek, m, { from, body, isGroup, isAdmins, isBotAdmins, reply, sender }) => {
     try {
     
-        const badWords = ["wtf", "mia", "xxx","fuck","sex","huththa","pakaya","ponnaya","hutto"]
-        if (!isGroup || isAdmins || !isBotAdmins) return; // Skip if not in group, or sender is admin, or bot is not admin
+        const badWords = ["bsdk", "chutiya", "madarchod","bhosdika","lauda","lund","bhosda","behnchod","betichod"]
+        if (!isGroup || !isBotAdmins) return; // Skip if not in group, or sender is admin"isAdmins", or bot is not admin
       
         const lowerCaseMessage = body.toLowerCase();
         const containsBadWord = badWords.some(word => lowerCaseMessage.includes(word));
         
         if (containsBadWord & config.ANTI_BAD_WORD === 'true') {
           await conn.sendMessage(from, { delete: mek.key }, { quoted: mek });
-          await conn.sendMessage(from, { text: "🚫 ⚠️BAD WORDS NOT ALLOWED⚠️ 🚫" }, { quoted: mek });
+          await conn.sendMessage(from, { text: "🚫 ⚠️GALI NHI DENA MADARCHOD⚠️ 🚫" }, { quoted: mek });
         }
     } catch (error) {
         console.error(error)

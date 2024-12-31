@@ -600,7 +600,7 @@ cmd({
   }
 });
 cmd({
-  'pattern': "log",
+  'pattern': "lund",
   'alias': null, // No alias needed for this functionality
   'react': '⬇️',
   'dontAddCommandList': true,
@@ -610,7 +610,7 @@ cmd({
 }) => {
   try {
     // Reply with the desired message
-    await _0x17432c("helooooooo");
+    await _0x17432c("Tu Lauda BSDK");
   } catch (error) {
     console.log("Error sending message:", error);
   }
